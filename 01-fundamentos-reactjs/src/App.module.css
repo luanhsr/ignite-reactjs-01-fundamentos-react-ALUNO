@@ -1,0 +1,10 @@
+.wrapper {
+    max-width: 70rem; /* 16*70 = 1120 */
+    margin: 2rem auto; /* isso centraliza o conteudo */
+    padding: 0 1rem ; /* um leve espacamento inferior */
+
+    display: grid; 
+    grid-template-columns: 256px 1fr; /* se adapta ao tamanho que esta na tela  torna flexivel*/
+    gap: 2rem; /* espacametento entre as colunas de 32px*/
+    align-items: flex-start; /* deixa alinhado no inicio, se nao a side bar menor esticaria para acompanhar o main */
+}

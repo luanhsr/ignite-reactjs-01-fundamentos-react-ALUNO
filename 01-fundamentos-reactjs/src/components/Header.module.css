@@ -1,0 +1,12 @@
+.header {  /* usar somente classes sempre que possivel*/
+  background-color: var(--gray-800);
+  display: flex; 
+  justify-content: center; 
+  /*centraliza o icone no centro */
+  padding: 1.25rem 0; /* 1rem 16px 1.25 rem 20px de distancia do topo e 0 do conteudo a baixo */ 
+
+}
+
+.header img {
+  height: 2rem; /* 32px */ 
+}
