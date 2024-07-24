@@ -1,5 +1,11 @@
 # React + Vite
 
+Esse projeto pertence a rockset, sou apenas um aluno reproduzindo:
+link do projeto original: 
+- [@git](github.com/rocketseat-education/ignite-reactjs-01-fundamentos-react)
+- todos os direitos pertence a https://app.rocketseat.com.br Diego Fernandes
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
