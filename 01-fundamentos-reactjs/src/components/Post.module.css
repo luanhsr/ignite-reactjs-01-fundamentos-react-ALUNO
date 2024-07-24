@@ -22,3 +22,44 @@
 .content a:hover {
     color: var(--green-300);
 }
+.post > header  { /*estiliza apenas as tags header no primeiro nivel do post*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post > header time {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+}
+.author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.author > img {
+         /* box-sizing: initial; /*  a cima no * definimos tudo em border box, entao os elementos com bordas, irao se comprimir, initial, nao ira comprimir os elementos dentro da borda */
+    width: calc(3rem + 12px);
+    height: calc(3rem + 12px);
+    border-radius: 8px; /* n faz sentido usar rem em bordas, pois isso nao interfere na acessibilidade */
+    border: 4px solid var(--gray-800);
+    outline: 2px solid var(--green-500); /* outline cria outra borda pra fora da borda a cima */
+    object-fit: cover; /* arrumar distorcao da imagem*/
+}
+.authorInfo {
+    display: flex;
+    flex-direction: column;
+}
+.authorInfo strong {
+    display: block;
+    color: var(--gray-100);
+    line-height: 1.6;
+}
+
+.authorInfo p {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--gray-400);
+    line-height: 1.6;
+}
+
