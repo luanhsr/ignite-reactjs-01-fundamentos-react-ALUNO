@@ -11,6 +11,10 @@
     --green-300: #00B37E;
     --green-500: #00875f;
 }
+:focus { /* alterando o focus padrao*/
+    outline: transparent;  /*tirando a marcacao branca */
+    box-shadow: 0 0 0 2px var(--green-500); /* criando uma sombra verde em votla do elemento focado     */
+}
 * {
     margin: 0;
     padding: 0;
