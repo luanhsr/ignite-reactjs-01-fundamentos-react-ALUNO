@@ -1,0 +1,95 @@
+.comment {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.comment > img {
+          /* box-sizing: initial; /*  a cima no * definimos tudo em border box, entao os elementos com bordas, irao se comprimir, initial, nao ira comprimir os elementos dentro da borda */
+          width: calc(3rem + 12px);
+          height: calc(3rem + 12px);
+          border-radius: 8px; /* n faz sentido usar rem em bordas, pois isso nao interfere na acessibilidade */
+          border: 4px solid var(--gray-800);
+          outline: 2px solid var(--green-500); /* outline cria outra borda pra fora da borda a cima */
+          object-fit: cover; /* arrumar distorcao da imagem*/
+} 
+.commentBox {
+    flex: 1; /* como a div pai e display flex, faz com que essa div commentBox ocupe todo o espaco possivel disponivel*/
+}
+
+.commentContent {
+    background: var(--gray-700);
+    border-radius: 8px;
+    padding: 1rem; 
+    /* altera cor, deixa borda do comentario redonda e da um espacamento interno*/
+}
+
+.commentContent header {
+    display: flex;
+    align-items: flex-start; 
+    justify-content: space-between; 
+    /* alinha o itens do cabecalho na parte de cima da classe e faz com que eles dividam o espaco igualmente*/
+}
+
+.authorAndTime strong {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+.authorAndTime time {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: var(--gray-400);
+}
+/*as alteracoes a cima mudam o tamanho, fazem que os elementos fiquem um a baixo do outro
+ e da um espacamento vertical  no elemento texto,ou seja cima e baixo, funciona como a definicao
+ de uma linha de um caderno, difernete do margin, o espacamento e dentro do elemento e nao fora.*/
+
+.commentContent header button {
+    background-color: transparent;
+    border: 0;
+    /*tira a estilizacao padrao*/
+
+    color: var(--gray-400);
+    cursor: pointer;
+    line-height: 0; /*deixa o botao e o icone sem espacamento*/
+    border-radius: 2px;
+}
+
+.commentContent header button:hover {
+    color: var(--red-500)
+}
+/* altera cor ao passar mause em cima do botao excluir*/
+.commentContent p {
+    margin-top: 1rem;
+    color: var(--gray-300);
+}
+/*a cima, deixa uma margem no paragrafo e altera cor do texto*/
+.commentBox footer {
+    margin-top: 1rem;
+}
+/* coloca uma margem no footer (parte final onde tem o botao de curtir)*/
+
+.commentBox footer button {
+    background-color: transparent;
+    border: 0;
+    /*tira a estilizacao padrao*/
+    color: var(--gray-400);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+/*altera a cor, o cursor, deixa os elementos lado a lado e alinhados no centro*/
+
+.commentBox footer button:hover {
+    color: var(--green-300);
+}
+/*ao focar com o mause o botao troca de cor para verde*/
+.commentBox footer button svg {
+    margin-right: 0.5rem;
+}
+.commentBox footer button span::before { /*cria um dentro do elemento spam*/
+    content: "/2022";  /*esse seria o conteudo, um icone HTML apenas um ponto*/
+    padding:  0 0 0.25rem; /*faz um pequeno espacamento*/
+}

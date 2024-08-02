@@ -9,7 +9,7 @@ export function Post() {
             <div className={styles.author}>
                 <img 
                   className= {styles.avatar}
-                  src="https://scontent.fmii8-1.fna.fbcdn.net/v/t39.30808-6/439953862_122104102826289452_624579252792590806_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=K_LeXKH1Mk8Q7kNvgH1ktcz&_nc_ht=scontent.fmii8-1.fna&oh=00_AYCdv2NGpxGhuOxiBfQRKtZxkCIiRKKexdVIuM6b9Xznnw&oe=66A6F5DB"
+                  src="https://i.pinimg.com/originals/30/64/b4/3064b48282103769f667cca0b705703b.jpg"
                   alt=""
                 />
                 <div className={styles.authorInfo}>
