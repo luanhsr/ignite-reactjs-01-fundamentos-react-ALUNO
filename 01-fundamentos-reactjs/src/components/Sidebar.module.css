@@ -10,6 +10,7 @@
     height: 72px;
     object-fit: cover; /* isso garante que a imagem nao distorca */
 }
+
 .profile{
     display: flex;
     flex-direction: column;
