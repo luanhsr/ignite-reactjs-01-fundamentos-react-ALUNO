@@ -8,3 +8,19 @@
     gap: 2rem; /* espacametento entre as colunas de 32px*/
     align-items: flex-start; /* deixa alinhado no inicio, se nao a side bar menor esticaria para acompanhar o main */
 }
+
+@media (max-width: 768px) {
+    
+    html {
+        font-size: 87.5%; /* Ajustamos o `rem` em dispositivos móveis para garantir que o
+                             tamanho do texto se adapte às preferências do usuário,
+                             promovendo a acessibilidade. Ao usar porcentagem em vez de `px`
+                             o layout responde às configurações de fonte do usuário, como
+                             aumentar o texto para facilitar a leitura, todo o app se ajuste 
+                             proporcionalmente. (imagens, margens, tamanho de objetos etc) */
+
+    }
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
