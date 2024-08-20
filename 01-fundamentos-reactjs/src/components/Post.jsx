@@ -1,30 +1,45 @@
+import { format, formatDistanceToNow } from 'date-fns'; 
+import { ptBR } from 'date-fns/locale';
+
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
+
 import styles from './Post.module.css';
 
-export function Post(props) {
-  console.log(props)
+export function Post({author, publishedAt, content}) {
+  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'as' HH:MM'h'" ,{
+    locale: ptBR,
+  })
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt,{
+    locale: ptBR,
+    addSuffix: true,
+  })
   return (
     <article className={styles.post}>
 
         <header>
             <div className={styles.author}>
                 <Avatar
-                  src="https://i.pinimg.com/originals/30/64/b4/3064b48282103769f667cca0b705703b.jpg"
+                  src={author.avatarUrl}
                 />
                 <div className={styles.authorInfo}>
-                  <strong>Elliot Alderson </strong>
-                  <span> Chief Information Security Officer (CISO) </span>
+                  <strong>{author.name}</strong>
+                  <span>{author.role}</span>
                 </div>
             </div>
-            <time title = "24 de Julho as 11:34h" dateTime="2024-07-24 11:34:30">Publicado a 1H</time>
+            <time title ={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+              {publishedDateRelativeToNow}
+            </time>
         </header>
 
         <div className={styles.content}>
-            <p>Alguma coisa disso é real? Olhe para isso. Olhe! Um mundo construído em fantasia. </p> 
-            <p>Emoções sintéticas em pílulas, guerra psicológica em propagandas, produtos químicos em comida que alteram a mente, seminários de lavagem cerebral em mídia, bolhas de controle em forma de redes sociais.</p>
-            <p><a href='https://www.vulnhub.com'> vulnhub.com</a></p> {' '}
-            <p><a href="#"> #Fsociedadade #AbraOsOlhos </a></p> {' '}
+          {content.map(line => {
+            if (line.type == 'paragraph') {
+              return <p>{line.content}</p>;
+            } else if (line.type == 'link') {
+              return <p><a href='#'> {line.content}</a></p>;
+            }
+          })}
         </div>
 
         <form className={styles.comentForm}>
