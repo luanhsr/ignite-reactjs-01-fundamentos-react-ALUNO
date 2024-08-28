@@ -75,6 +75,6 @@
     margin-right: 0.5rem;
 }
 .commentBox footer button span::before { /*cria um dentro do elemento spam*/
-    content: "/2022";  /*esse seria o conteudo, um icone HTML apenas um ponto*/
-    padding:  0 0 0.25rem; /*faz um pequeno espacamento*/
+    content: "\2022";  /*esse seria o conteudo, um icone HTML apenas um ponto*/
+    padding:  0 0.25rem; /*faz um pequeno espacamento*/
 }

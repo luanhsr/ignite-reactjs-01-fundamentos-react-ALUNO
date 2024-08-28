@@ -7,6 +7,7 @@ import { Comment } from './Comment';
 import styles from './Post.module.css';
 import { useState } from 'react';
 
+
 export function Post({author, publishedAt, content}) {
   
   const [comments, setComments] = useState ([
@@ -28,6 +29,9 @@ export function Post({author, publishedAt, content}) {
 
   function handleNewCommentChange () {
     setNewCommentText(event.target.value);
+  }
+  function handleNewCommentInvalid () {
+    event.target.setCustomValidity('Esse campo é obrigatório!');
   }
   function deleteComment (commentToDelete) {
     const commentsWithoutDeletedOne = comments.filter(comment =>{
@@ -70,6 +74,8 @@ export function Post({author, publishedAt, content}) {
               value={newCommentText}
               placeholder='Deixe um comentario'
               onChange={handleNewCommentChange}
+              onInvalid={handleNewCommentInvalid}
+              required
             />
             <footer>
                 <button type='submit'> Publicar </button>
