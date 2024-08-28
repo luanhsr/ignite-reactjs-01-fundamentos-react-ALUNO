@@ -2,14 +2,23 @@ import { ThumbsUp, Trash } from 'phosphor-react';
 import styles from './Comment.module.css';
 import { Avatar } from './Avatar';
 import { useState } from 'react';
-export function Comment ({content , onDeleteComment}) {
+
+interface CommentProps {
+    content: string;
+    onDeleteComment: (comment: string) => void;
+    /* funcoes sao declaradas assim, alem do parametro tambem e preciso
+    declarar seu retorno, no caso: void (seria 'nada' pq a func em si nao retorna nada.) */
+}
+
+
+export function Comment ({content , onDeleteComment}:CommentProps) {
     
     const [likeCount, setLikeCount] = useState(0);
 
-    function handleLikeComment () {
-        setLikeCount(likeCount + 1);
+    function handleDeletComment() {
+        onDeleteComment(content)
     }
-    function handleDeletComment () {
+    function handleLikeComment () {
         setLikeCount((state)=> {
             return state + 1
         })

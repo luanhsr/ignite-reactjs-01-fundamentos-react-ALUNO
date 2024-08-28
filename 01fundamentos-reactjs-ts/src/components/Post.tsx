@@ -5,10 +5,39 @@ import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 
 import styles from './Post.module.css';
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
+interface Author {
+  name: string;
+  role: string;
+  avatarUrl: string;
+}
 
-export function Post({author, publishedAt, content}) {
+interface Content {
+  type: 'paragraph' | 'link';
+  content: 'string';
+}
+
+interface PostProps {
+  author: Author;
+  publishedAt: Date;
+  content: Content[];
+}
+// definido as 'propriedades' do objeto Post, na verdade definindo todas as tipagem dos atributos do post
+// para que o js compreenda
+/* 
+Outra maneira de fazer o codigo a cima que eu gostei:
+interface PostProps {
+  author: {
+    name: string;
+    role: string;
+    avatarUrl: string;
+  }
+  publishedAt: Date;
+  content: string;
+}
+*/
+export function Post({author, publishedAt, content}:PostProps) {
   
   const [comments, setComments] = useState ([
     'Elliot voce tomou seus remedios hoje? ja ta com ideia torta'
@@ -21,19 +50,20 @@ export function Post({author, publishedAt, content}) {
     locale: ptBR,
     addSuffix: true,
   })
-  function handleCreateNewComent () {
+  function handleCreateNewComent (event: FormEvent) {
     event.preventDefault();
     setComments ([...comments, newCommentText]);
     setNewCommentText('');
   }
 
-  function handleNewCommentChange () {
+  function handleNewCommentChange (event: ChangeEvent<HTMLTextAreaElement>) {
+    event.target.setCustomValidity(''); // tinha esquecido kakaka
     setNewCommentText(event.target.value);
   }
-  function handleNewCommentInvalid () {
+  function handleNewCommentInvalid (event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('Esse campo é obrigatório!');
   }
-  function deleteComment (commentToDelete) {
+  function deleteComment (commentToDelete: string) {
     const commentsWithoutDeletedOne = comments.filter(comment =>{
       return comment !== commentToDelete;
     }) 

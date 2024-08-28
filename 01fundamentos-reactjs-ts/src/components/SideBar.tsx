@@ -13,8 +13,6 @@ export function Sidebar () {
                 <Avatar
                     src="https://i.pinimg.com/originals/30/64/b4/3064b48282103769f667cca0b705703b.jpg"       
                 /> 
-                    
-              
                 <strong>Eliot Anderson</strong>
                 <span>Hacker / Pentester </span>
             </div>
